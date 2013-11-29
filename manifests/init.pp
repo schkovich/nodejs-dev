@@ -11,7 +11,7 @@
 # Sample Usage:
 #
 class nodejs_dev (
-  $host = $nodejs_dev::conf::host, $port = 8080
+  $host = $nodejs_dev::conf::host, $port = 8080, $user = 'vagrant'
 ) inherits nodejs_dev::conf {
 
   include nodejs_dev::user
@@ -19,10 +19,10 @@ class nodejs_dev (
   include nodejs_dev::redis_install
 
   file {
-    "/home/ubuntu/opt":
+    "/home/${user}/opt":
       ensure => directory,
-      group  => "ubuntu",
-      owner  => "ubuntu",
+      group  => $user,
+      owner  => $user,
       mode   => 0755;
   }
 }
