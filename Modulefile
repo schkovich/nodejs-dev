@@ -1,11 +1,15 @@
-name    'goran-nodejs_dev'
+name    'gmiskoivc-nodejs_dev'
 version '0.1.0'
-source ''
-author ''
+source 'https://github.com/schkovich/nodejs-dev'
+author 'Goran Miskovic'
 license ''
 summary ''
 description ''
 project_page ''
 
 ## Add dependencies, if any:
-# dependency 'username/name', '>= 1.2.0'
+dependency 'puppetlabs/nodejs', '>= 0.4.0'
+# Modules that are not published on the Forge cannot
+# be defined as dependency
+# https://projects.puppetlabs.com/issues/22098
+# use Puppet Librarian instead

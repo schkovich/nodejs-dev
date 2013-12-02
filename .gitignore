@@ -1,4 +1,2 @@
-.project
-.settings/
-/metadata.json
-/README.markdown~
+.idea
+atlassian-ide-plugin.xml
