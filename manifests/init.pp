@@ -33,7 +33,7 @@ class nodejs_dev (
 
   class {'nodejs_dev::nodejs_install':
     user => $user,
-    subsribe => File["/home/${user}/opt"],
+    subscribe => File["/home/${user}/opt"],
   }
 
   class {'nodejs_dev::redis_install':
