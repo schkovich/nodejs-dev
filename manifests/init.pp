@@ -14,12 +14,12 @@ class nodejs_dev (
   $host = $nodejs_dev::conf::host, $port = 8080, $user = 'vagrant'
 ) inherits nodejs_dev::conf {
 
-  class {"nodejs_dev::user":}
+  package { 'git':
+    ensure => "present",
+  }
 
-  package {"git":
-    ensure => "installed",
-    provider => "apt",
-    require => Class['nodejs_dev::user']
+  class {"nodejs_dev::user":
+    require => Package["git"],
   }
 
   file {
@@ -28,7 +28,7 @@ class nodejs_dev (
     group  => $user,
     owner  => $user,
     mode   => 0755,
-    require => Package["git"],
+    require => Class["nodejs_dev::user"],
   }
 
   class {'nodejs_dev::nodejs_install':
