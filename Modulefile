@@ -8,7 +8,7 @@ description ''
 project_page ''
 
 ## Add dependencies, if any:
-dependency 'puppetlabs/nodejs', '>= 0.4.0'
+dependency 'puppetlabs/nodejs', '>= 0.6.1'
 # Modules that are not published on the Forge cannot
 # be defined as dependency
 # https://projects.puppetlabs.com/issues/22098
