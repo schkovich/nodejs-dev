@@ -14,13 +14,7 @@ class nodejs_dev (
   $host = $nodejs_dev::conf::host, $port = 8080, $user = 'vagrant'
 ) inherits nodejs_dev::conf {
 
-  package { 'git':
-    ensure => "present",
-  }
-
-  class {"nodejs_dev::user":
-    require => Package["git"],
-  }
+  class {"nodejs_dev::user": }
 
   file {
     "/home/${user}/opt":
@@ -36,7 +30,7 @@ class nodejs_dev (
     subscribe => File["/home/${user}/opt"],
   }
 
-  class {'nodejs_dev::redis_install':
+  class {'nodejs_dev::mongodb_install':
     require => Class['nodejs_dev::nodejs_install'],
   }
 }
