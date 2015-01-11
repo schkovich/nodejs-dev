@@ -1,5 +1,5 @@
 name    'gmiskoivc-nodejs_dev'
-version '0.1.0'
+version '0.2.0'
 source 'https://github.com/schkovich/nodejs-dev'
 author 'Goran Miskovic'
 license ''
@@ -8,7 +8,7 @@ description ''
 project_page ''
 
 ## Add dependencies, if any:
-dependency 'puppetlabs/nodejs', '>= 0.6.1'
+dependency 'puppetlabs/nodejs', '>= 0.10.35'
 # Modules that are not published on the Forge cannot
 # be defined as dependency
 # https://projects.puppetlabs.com/issues/22098
