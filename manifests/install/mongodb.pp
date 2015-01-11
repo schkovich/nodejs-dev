@@ -1,4 +1,4 @@
-class nodejs_dev::mongodb_install ($manage_repo = true) {
+class nodejs_dev::install::mongodb ($manage_repo = true) {
 
   validate_bool($manage_repo)
 
