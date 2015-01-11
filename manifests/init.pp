@@ -25,13 +25,9 @@ class nodejs_dev (
     require => Class["nodejs_dev::user"],
   }
 
-  class {'nodejs_dev::nodejs_install':
+  class {'nodejs_dev::install::nodejs':
     user => $user,
     subscribe => File["/home/${user}/opt"],
-  }
-
-  class {'nodejs_dev::mongodb_install':
-    require => Class['nodejs_dev::nodejs_install'],
   }
 }
 
