@@ -1,5 +1,5 @@
 {
-  "name": "gmiskoivc-nodejs_dev",
+  "name": "schkovich-nodejs_dev",
   "version": "0.2.0",
   "summary": "",
   "author": "Goran Miskovic",
@@ -7,7 +7,9 @@
   "tags": [
     "node",
     "nodejs",
-    "npm"
+    "npm",
+    "redis",
+    "mongodb"
   ],
   "operatingsystem_support": [
     {
@@ -21,7 +23,7 @@
   "dependencies": [{"name": "puppetlabs/nodejs", "version_requirement": ">=0.10.35"}],
   "types": [],
   "checksums": {},
-  "source": "",
+  "source": "https://github.com/schkovich/nodejs-dev.git",
   "project_page": "",
-  "license": ""
+  "license": "MIT"
 }
