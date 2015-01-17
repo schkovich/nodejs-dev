@@ -11,13 +11,18 @@
 # Sample Usage:
 #
 class nodejs_dev (
-  $host = $nodejs_dev::conf::host, $port = 8080, $user = 'vagrant'
+  $host = $nodejs_dev::conf::host,
+  $port = 8080,
+  $user = 'vagrant',
+  $install_dir = ''
 ) inherits nodejs_dev::conf {
 
+  case $install_dir {'': { $install_dir = "/home/${user}/opt" } }
+  ->
   class {"nodejs_dev::user": }
 
   file {
-    "/home/${user}/opt":
+    "${install_dir}":
     ensure => directory,
     group  => $user,
     owner  => $user,
@@ -27,7 +32,7 @@ class nodejs_dev (
 
   class {'nodejs_dev::install':
     user => $user,
-    subscribe => File["/home/${user}/opt"],
+    subscribe => File["${install_dir}"],
   }
 }
 
