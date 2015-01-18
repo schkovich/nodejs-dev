@@ -1,4 +1,12 @@
-class nodejs_dev::install::mongodb ($manage_repo = true) {
+class nodejs_dev::install::mongodb (
+  $manage_repo = true,
+  $port = 27018,
+  $dbname = undef,
+  $dbuser = undef,
+  $password = undef,
+  $dbadmin = undef,
+  $admin_password = undef
+  ) {
 
   validate_bool($manage_repo)
 
@@ -7,25 +15,30 @@ class nodejs_dev::install::mongodb ($manage_repo = true) {
   }
   ->
   class {'::mongodb::server':
-    port    => 27017,
+    port    => $port,
     verbose => true,
   }
   ->
-  class {'mongodb::client':}
+  class {'::mongodb::client':}
   ->
-  mongodb_database { 'vatdb':
+  mongodb_database { "${dbname}":
     ensure   => present,
-    tries    => 10,
+  }
+  ->
+  mongodb_user { admin:
+    username      => $dbadmin,
+    ensure        => present,
+    password_hash => mongodb_password($dbadmin, $admin_password),
+    database      => "${dbname}",
+    roles         => ['dbOwner'],
   }
   ->
   mongodb_user { vatuser:
-    username      => 'vateu',
+    username      => $dbuser,
     ensure        => present,
-    password_hash => '6c59af3bd58968e1392a2210bce198a5',
-  #    password_hash => mongodb_password('testuser', 'p@ssw0rd'),
-    database      => 'vatdb',
-    roles         => ['readWrite', 'dbAdmin'],
-    tries         => 10,
+    password_hash => mongodb_password($dbuser, $password),
+    database      => "${dbname}",
+    roles         => ['readWrite'],
   }
 
 }
