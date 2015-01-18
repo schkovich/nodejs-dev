@@ -18,8 +18,6 @@ class nodejs_dev (
 ) inherits nodejs_dev::conf {
 
   case $install_dir {'': { $install_dir = "/home/${user}/opt" } }
-  ->
-  class {"nodejs_dev::user": }
 
   file {
     "${install_dir}":
@@ -27,12 +25,15 @@ class nodejs_dev (
     group  => $user,
     owner  => $user,
     mode   => 0755,
-    require => Class["nodejs_dev::user"],
   }
 
   class {'nodejs_dev::install':
     user => $user,
     subscribe => File["${install_dir}"],
+  }
+
+  class {"nodejs_dev::user":
+    require => Class["nodejs_dev::install"],
   }
 }
 
