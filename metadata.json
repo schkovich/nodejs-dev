@@ -1,6 +1,6 @@
 {
   "name": "schkovich-nodejs_dev",
-  "version": "0.2.0",
+  "version": "0.2.2",
   "summary": "",
   "author": "Goran Miskovic",
   "description": "",
@@ -20,7 +20,7 @@
       ]
     }
   ],
-  "dependencies": [{"name": "puppetlabs/nodejs", "version_requirement": ">=0.10.35"}],
+  "dependencies": [{"name": "puppetlabs/nodejs", "version_requirement": ">=0.6.1"}],
   "types": [],
   "checksums": {},
   "source": "https://github.com/schkovich/nodejs-dev.git",
