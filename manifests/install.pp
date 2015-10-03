@@ -1,4 +1,4 @@
-class nodejs_dev::install ($manage_repo = true, $user) {
+class nodejs_dev::install ($manage_repo = false, $user) {
 
   class { '::nodejs':
     manage_package_repo       => $manage_repo,

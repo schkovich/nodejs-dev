@@ -27,6 +27,8 @@ class nodejs_dev (
     mode   => 0755,
   }
 
+  Class['apt::update'] -> Package<| |>
+
   class {'nodejs_dev::install':
     user => $user,
     subscribe => File["${install_dir}"],
