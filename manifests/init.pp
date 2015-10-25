@@ -30,5 +30,8 @@ class nodejs_dev (
   class {"nodejs_dev::user":
     subscribe => File["${install_dir}"],
   }
+  ->
+  class { 'nodejs': }
+
 }
 
