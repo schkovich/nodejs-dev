@@ -27,13 +27,9 @@ class nodejs_dev (
     mode   => 0755,
   }
 
-  class {'nodejs_dev::install':
-    user => $user,
-    subscribe => File["${install_dir}"],
-  }
-
   class {"nodejs_dev::user":
     require => Class["nodejs_dev::install"],
+    subscribe => File["${install_dir}"],
   }
 }
 
