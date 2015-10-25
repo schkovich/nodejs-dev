@@ -28,7 +28,6 @@ class nodejs_dev (
   }
 
   class {"nodejs_dev::user":
-    require => Class["nodejs_dev::install"],
     subscribe => File["${install_dir}"],
   }
 }
