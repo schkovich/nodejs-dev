@@ -31,7 +31,9 @@ class nodejs_dev (
     subscribe => File["${install_dir}"],
   }
   ->
-  class { 'nodejs': }
+  class { 'nodejs':
+    repo_url_suffix => '4.4.x',
+  }
 
 }
 
