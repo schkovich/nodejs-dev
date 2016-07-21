@@ -32,7 +32,7 @@ class nodejs_dev (
   }
   ->
   class { 'nodejs':
-    repo_url_suffix => '4.x',
+    repo_url_suffix => '5.x',
   }
 
 }
