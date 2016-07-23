@@ -10,6 +10,13 @@ class nodejs_dev::install::mongodb (
 
   validate_bool($manage_repo)
 
+  file { "mongodb":
+    path    => '/etc/systemd/system/mongod.service',
+    backup  => false,
+    ensure  => present,
+    source  => "puppet:///modules/nodejs-dev/mongod.service",
+  }
+  ->
   class {'::mongodb::globals':
     manage_package_repo => $manage_repo,
   }
