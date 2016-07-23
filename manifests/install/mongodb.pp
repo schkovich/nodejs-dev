@@ -10,7 +10,7 @@ class nodejs_dev::install::mongodb (
 
   validate_bool($manage_repo)
 
-  class {'::mongodb::globals':ps
+  class {'::mongodb::globals':
     manage_package_repo => $manage_repo,
     version => '3.2.8'
   }
