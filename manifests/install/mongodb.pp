@@ -14,7 +14,7 @@ class nodejs_dev::install::mongodb (
     path    => '/etc/systemd/system/mongod.service',
     backup  => false,
     ensure  => present,
-    source  => "puppet:///modules/nodejs-dev/mongod.service",
+    source  => "puppet:///vendors/nodejs-dev/mongod.service",
   }
   ->
   class {'::mongodb::globals':
