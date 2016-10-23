@@ -21,6 +21,7 @@ class nodejs_dev (
   class { 'nodejs':
     repo_url_suffix => '6.x',
     nodejs_dev_package_ensure => 'absent',
+    npm_package_ensure        => 'absent',
   }
 
 }
